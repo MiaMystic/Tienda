@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda online de productos variados. Encuentra lo que buscas a los mejores precios.">
+    <title>Tienda Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #444;
+            position: relative;
+        }
+        nav a {
+            padding: 14px 20px;
+            text-decoration: none;
+            color: white;
+        }
+        nav a:hover {
+            background-color: #555;
+        .product-slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.product-slider img {
+    width: 100%;
+    display: none; /* Ocultar todas las imágenes por defecto */
+    transition: opacity 0.5s ease;
+}
+
+.product-slider img.active {
+    display: block; /* Mostrar solo la imagen activa */
+}
+        }
+        nav #cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        nav #cart-dropdown {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            width: 300px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        nav #cart-dropdown ul {
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+        }
+        nav #cart-dropdown ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        nav #cart-dropdown ul li:last-child {
+            border-bottom: none;
+        }
+        nav #cart-dropdown p {
+            padding: 10px;
+            text-align: right;
+            font-weight: bold;
+        }
+        nav #cart-dropdown p.total {
+            border-top: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        nav #cart-dropdown button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        nav #cart-dropdown button:hover {
+            background-color: #218838;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .product p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+        .product .price {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .product button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        #product-buttons {
+            display: none;
+            margin-top: 20px;
+        }
+        #product-buttons button {
+            padding: 10px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #product-buttons button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido A Nuestra Tienda Online</h1>
+        <p>Los mejores productos al mejor precio</p>
+    </header>
+    
+    <nav>
+        <a href="#" onclick="scrollToTop()">Inicio</a>
+        <a href="https://wa.me/573192981955" target="_blank">Contacto</a>
+        <div id="cart-icon">
+            <a href="#" onclick="toggleCartDropdown()">Carrito (<span id="cart-count">0</span>)</a>
+            <div id="cart-dropdown">
+                <ul id="cart-items">
+                    <!-- Los productos añadidos al carrito se mostrarán aquí -->
+                </ul>
+                <p>Total: <span id="cart-total">0</span> COP</p>
+                <button onclick="checkout()">Pagar</button>
+            </div>
+        </div>
+    </nav>
+
+
+<div class="container">
+    <h1>Nuestros Productos</h1>
+<h3>Pocillos Personalizados</h3>
+<h4>El regalo perfecto para cualquier ocasión. Diseñado especialemnte para ti.(Recuerda que puedes personalizarlo a tu gusto)</h4>
+    <div class="product-grid" id="products">
+        <div class="product category1">
+            <img src="file:///C:/Users/57314/Downloads/D_NQ_NP_680842-MCO74414331167_022024-O.webp" alt="Producto 1"> 
+            <h3>Mugs Personalizado</h3>
+            <p>Cerámica blanca de 11onz</p>
+            <p class="price">$13.500</p>
+            <button onclick="addToCart('Producto 1', 25000)">Añadir al carrito</button>
+        </div>
+        <div class="product category1">
+            <img src="file:///C:/Users/57314/Downloads/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(31).png" alt="Producto 2">
+            <h3>Mugs Personalizado</h3>
+            <p>Cerámica blanca de 11onz</p>
+            <p class="price">$12.500</p>
+            <button onclick="addToCart('Producto 2', 45000)">Añadir al carrito</button>
+        </div>
+        <div class="product category2">
+            <img src="file:///C:/Users/57314/Downloads/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(32).png" alt="Producto 3">
+            <h3>Mugs Personalizado</h3>
+            <p>Cerámica blanca de 11onz</p>
+            <p class="price">$14.500</p>
+            <button onclick="addToCart('Producto 3', 35000)">Añadir al carrito</button>
+        </div>
+        <div class="product category2">
+            <img src="file:///C:/Users/57314/Downloads/G%20(3).png">
+            <h3>Mugs Personalizados</h3>
+            <p>Cerámica blanca de 11onz</p>
+            <p class="price">$13.500</p>
+            <button onclick="addToCart('Producto 4', 50000)">Añadir al carrito</button>
+        </div>
+        <div class="product category3">
+            <img src="file:///C:/Users/57314/Downloads/G.png" alt="Producto 5">
+            <h3>Mugs Personalizados</h3>
+            <p>Cerámica blanca de 11onz</p>
+            <p class="price">$13.500</p>
+            <button onclick="addToCart('Producto 5', 60000)">Añadir al carrito</button>
+        </div>
+<div class="product category3">
+            <img src="file:///C:/Users/57314/Downloads/G%20(4).png" alt="Producto 5">
+            <h3>Mugs Personalizado</h3>
+            <p>Cerámica blanca de 11onz</p>
+            <p class="price">$12.500</p>
+            <button onclick="addToCart('Producto 5', 60000)">Añadir al carrito</button>
+        </div>
+
+<div class="product category3">
+            <img src="file:///C:/Users/57314/Downloads/G%20(2).png" alt="Producto 5">
+            <h3>Mugs Personalizado</h3>
+            <p>Cerámica blanca de 11onz</p>
+            <p class="price">$12.500</p>
+            <button onclick="addToCart('Producto 5', 60000)">Añadir al carrito</button>
+        </div>
+<div class="product category3">
+            <img src="file:///C:/Users/57314/Downloads/G%20(1).png" alt="Producto 5">
+            <h3>Mugs Personalizado</h3>
+            <p>Cerámica blanca de 11onz</p>
+            <p class="price">$13.500</p>
+            <button onclick="addToCart('Producto 5', 60000)">Añadir al carrito</button>
+        </div>
+
+        <!-- Añadir más productos según la categoría -->
+    </div>
+</div>
+
+
+    <div class="container">
+        <h2>Nuestros Productos</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="file:///C:/Users/57314/Pictures/gato1.png" alt="Producto 1">              
+                <img src="file:///C:/Users/57314/Pictures/gato2.png" alt="Producto 1">           
+                <h3>Mugs Personalizados</h3>
+                <p>Cerámica blanca de 11onz</p>
+                <p class="price">$13.000</p>
+                <button onclick="addToCart('Producto 1', 25000)">Añadir al carrito</button>
+            </div>
+
+            <div class="product">
+                <img src="file:///C:/Users/57314/Pictures/alegria.png" alt="Producto 2">
+                <img src="file:///C:/Users/57314/Pictures/alegria1.png" alt="producto 2">
+                <h3>Mugs Personalizados</h3>
+                <p>Descripción breve del producto.</p>
+                <p class="price">$15.500</p>
+                <button onclick="addToCart('Producto 2', 45000)">Añadir al carrito</button>
+            </div>
+            <div class="product">
+                <img src="file:///C:/Users/57314/Downloads/G%20(5).png" alt="Producto 3">
+                <img src="file:///C:/Users/57314/Downloads/G%20(6).png" alt="producto3">
+                <h3>Producto 3</h3>
+                <p>Descripción breve del producto.</p>
+                <p class="price">$35.000</p>
+                <button onclick="addToCart('Producto 3', 35000)">Añadir al carrito</button>
+            </div>
+<div class="product">
+                <img src="producto3.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p>Descripción breve del producto.</p>
+                <p class="price">$35.000</p>
+                <button onclick="addToCart('Producto 3', 35000)">Añadir al carrito</button>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Tienda Online. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+     
+      document.querySelectorAll('.product-slider').forEach(slider => {
+    let currentImage = 0;
+    const images = slider.querySelectorAll('img');
+
+    slider.addEventListener('click', () => {
+        images[currentImage].classList.remove('active');
+        currentImage = (currentImage + 1) % images.length; // Cambia a la siguiente imagen
+        images[currentImage].classList.add('active');
+    });
+});
+
+        let cart = [];
+        let total = 0;
+
+        function addToCart(productName, price) {
+            // Añadir el producto al carrito
+            cart.push({ name: productName, price: price });
+
+            // Actualizar el total
+            total += price;
+
+            // Actualizar el contador de productos
+            document.getElementById("cart-count").textContent = cart.length;
+
+            // Mostrar el carrito
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartItems = document.getElementById("cart-items");
+            const cartTotal = document.getElementById("cart-total");
+
+            // Limpiar la lista actual
+            cartItems.innerHTML = '';
+
+            // Mostrar cada producto en el carrito
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = ${item.name} - $${item.price};
+                cartItems.appendChild(li);
+            });
+
+            // Actualizar el total
+            cartTotal.textContent = total.toLocaleString();
+        }
+
+        function toggleCartDropdown() {
+            const cartDropdown = document.getElementById("cart-dropdown");
+            cartDropdown.style.display = cartDropdown.style.display === "block" ? "none" : "block";
+        }
+
+        function toggleProductButtons() {
+            const productButtons = document.getElementById("product-buttons");
+            productButtons.style.display = productButtons.style.display === "block" ? "none" : "block";
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function checkout() {
+            let message = '¡Hola! Me gustaría comprar los siguientes productos:\n\n';
+            
+            // Recorrer los productos del carrito
+            cart.forEach(item => {
+                message += - ${item.name}: $${item.price}\n;
+            });
+
+            message += \nTotal: $${total.toLocaleString()} COP;
+
+            // Reemplaza el número con tu número de WhatsApp
+            const whatsappUrl = https://wa.me/573192981955?text=${encodeURIComponent(message)};
+
+            // Redirigir a WhatsApp
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+
